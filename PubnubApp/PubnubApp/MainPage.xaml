@@ -6,9 +6,25 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Entry x:Name="UserName"/>
+        <StackLayout>
+            <ListView x:Name="DataListView" HasUnevenRows="True" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label  Text="{Binding UserName}"/>
+                                <Label  Text="{Binding Message}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <Entry x:Name="entryData"/>
+        <Button Text="Submit" Clicked="Button_Clicked"/>
     </StackLayout>
+
 
 </ContentPage>
